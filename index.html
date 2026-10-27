@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>College Placement Analytics Portal</title>
+
+<style>
+
+/* 🌗 THEME VARIABLES */
+:root {
+    --bg: #f5f7fb;
+    --text: #333;
+    --card: white;
+    --nav: white;
+    --accent: #764ba2;
+}
+
+body.dark {
+    --bg: #0f172a;
+    --text: #e2e8f0;
+    --card: #1e293b;
+    --nav: #1e293b;
+    --accent: #a78bfa;
+}
+
+/* 🌐 GLOBAL */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    transition: 0.3s;
+}
+
+/* 🔝 NAVBAR */
+.navbar {
+    background: var(--nav);
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+}
+
+.navbar h2 {
+    color: var(--accent);
+    margin: 0;
+}
+
+.nav-links a {
+    margin-left: 25px;
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 600;
+}
+
+.nav-links a:hover {
+    color: var(--accent);
+}
+
+/* ❌ REMOVE OLD BUTTON SPACE */
+.theme-toggle {
+    display: none;
+}
+
+/* 🌙 PERFECT DARK BUTTON (SAME AS DATASET) */
+#darkToggle {
+    position: fixed;
+    top: 19px;
+    right: 320px;
+    background: #111827;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 12px;
+    z-index: 1000;
+}
+
+body.dark #darkToggle {
+    background: #e2e8f0;
+    color: #111;
+}
+
+/* 🎯 HERO */
+.hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 70px 40px;
+    background: linear-gradient(120deg, #667eea, #764ba2);
+    color: white;
+}
+
+.hero-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.hero-text h1 {
+    font-size: 44px;
+    margin-bottom: 15px;
+}
+
+.hero-text p {
+    font-size: 18px;
+    max-width: 500px;
+    line-height: 1.6;
+}
+
+.hero-image {
+    flex: 2;
+    min-width: 300px;
+    text-align: center;
+}
+
+.hero-image img {
+    max-width: 90%;
+    border-radius: 15px;
+    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+
+/* 📦 CONTENT */
+.content {
+    padding: 70px 40px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title h2 {
+    color: var(--accent);
+    font-size: 32px;
+}
+
+/* 🧱 CARDS */
+.cards {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: var(--card);
+    width: 280px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    text-align: center;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h3 {
+    color: var(--accent);
+}
+
+/* 🦶 FOOTER */
+footer {
+    background: #2d2d2d;
+    color: #ccc;
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+}
+
+body.dark footer {
+    background: #020617;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- 🌙 FLOATING DARK MODE BUTTON -->
+<div id="darkToggle" onclick="toggleTheme()">🌙 Dark</div>
+
+<!-- 🔝 NAVBAR -->
+<div class="navbar">
+    <h2>📊 Placement Analytics</h2>
+
+    <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/dataset">Upload Dataset</a>
+    </div>
+</div>
+
+<!-- 🎯 HERO -->
+<div class="hero">
+    <div class="hero-text">
+        <h1>College Placement Analytics Portal</h1>
+        <p>
+            Transform raw placement data into powerful insights
+            using analytics, visualization, and smart dashboards.
+        </p>
+    </div>
+
+    <div class="hero-image">
+        <img src="{{ url_for('static', filename='data analytics.webp') }}">
+    </div>
+</div>
+
+<!-- 📦 CONTENT -->
+<div class="content">
+
+<div class="section-title">
+    <h2>Who Can Benefit?</h2>
+</div>
+
+<div class="cards">
+
+    <div class="card">
+        <h3>🎓 Students</h3>
+        <p>Understand trends, salaries & opportunities.</p>
+    </div>
+
+    <div class="card">
+        <h3>👩‍🏫 Faculty</h3>
+        <p>Track performance & improve outcomes.</p>
+    </div>
+
+    <div class="card">
+        <h3>🏫 Management</h3>
+        <p>Make data-driven placement decisions.</p>
+    </div>
+
+</div>
+
+</div>
+
+<footer>
+    College Placement Analytics Portal
+</footer>
+
+<!-- 🌙 DARK MODE SCRIPT -->
+<script>
+function toggleTheme() {
+    document.body.classList.toggle("dark");
+    localStorage.setItem("darkMode", document.body.classList.contains("dark"));
+}
+
+// apply saved theme
+if(localStorage.getItem("darkMode") === "true"){
+    document.body.classList.add("dark");
+}
+</script>
+
+</body>
+</html>

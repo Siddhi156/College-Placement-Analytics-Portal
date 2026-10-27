@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Project | Placement Analytics Portal</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background: #f5f7fb;
+        color: #333;
+        transition: 0.3s;
+    }
+
+    /* 🌙 DARK MODE */
+    body.dark {
+        background: #0f172a;
+        color: #e2e8f0;
+    }
+
+    /* NAVBAR */
+    .navbar {
+        background: white;
+        padding: 15px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        position: sticky;
+        top: 0;
+    }
+
+    body.dark .navbar {
+        background: #1e293b;
+    }
+
+    .navbar h2 {
+        color: #764ba2;
+        margin: 0;
+    }
+
+    body.dark .navbar h2 {
+        color: #a78bfa;
+    }
+
+    .nav-links a {
+        margin-left: 25px;
+        text-decoration: none;
+        color: #555;
+        font-weight: 600;
+    }
+
+    body.dark .nav-links a {
+        color: #cbd5e1;
+    }
+
+    .nav-links a:hover {
+        color: #764ba2;
+    }
+
+    /* 🌙 PERFECT DARK BUTTON (same as dataset page) */
+    #darkToggle {
+        position: fixed;
+        top: 36px;
+        right: 320px;
+        background: #111827;
+        color: white;
+        padding: 8px 14px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 12px;
+        z-index: 9999;
+    }
+
+    body.dark #darkToggle {
+        background: #e2e8f0;
+        color: #111;
+    }
+
+    /* HEADER */
+    .header {
+        background: linear-gradient(120deg, #667eea, #764ba2);
+        color: white;
+        padding: 50px 20px;
+        text-align: center;
+    }
+
+    /* CONTENT */
+    .container {
+        max-width: 1000px;
+        margin: auto;
+        padding: 50px 20px;
+    }
+
+    .section {
+        background: white;
+        padding: 30px;
+        margin-bottom: 30px;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    body.dark .section {
+        background: #1e293b;
+    }
+
+    .section h2 {
+        color: #764ba2;
+    }
+
+    footer {
+        background: #2d2d2d;
+        color: #ccc;
+        text-align: center;
+        padding: 15px;
+    }
+
+    body.dark footer {
+        background: #020617;
+    }
+</style>
+```
+
+</head>
+
+<body>
+
+<!-- 🌙 DARK BUTTON (ONLY ONE USED) -->
+
+<div id="darkToggle" onclick="toggleDark()">🌙 Dark</div>
+
+<!-- NAVBAR -->
+
+<div class="navbar">
+    <h2>📊 Placement Analytics</h2>
+    <div class="nav-links">
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('about') }}">About</a>
+        <a href="{{ url_for('dataset') }}">Upload Dataset</a>
+    </div>
+</div>
+
+<!-- HEADER -->
+
+<div class="header">
+    <h1>About the Project</h1>
+    <p>
+        College Placement Analytics Portal – A data-driven approach
+        to analyze and visualize placement performance.
+    </p>
+</div>
+
+<!-- CONTENT -->
+
+<div class="container">
+
+```
+<div class="section">
+    <h2>📌 Project Overview</h2>
+    <p>
+        The College Placement Analytics Portal helps institutions
+        analyze placement data and generate meaningful insights.
+    </p>
+</div>
+
+<div class="section">
+    <h2>🎯 Objectives</h2>
+    <ul>
+        <li>Analyze placement performance</li>
+        <li>Identify department trends</li>
+        <li>Understand salary patterns</li>
+        <li>Automate insights</li>
+    </ul>
+</div>
+
+<div class="section">
+    <h2>⚙ How it Works</h2>
+    <p>
+        Upload dataset → System processes → Dashboard generated.
+    </p>
+</div>
+
+<div class="section">
+    <h2>📈 Outcome</h2>
+    <p>
+        Helps students, faculty, and management take better decisions.
+    </p>
+</div>
+
+
+</div>
+
+<!-- FOOTER -->
+
+<footer>
+    College Placement Analytics Portal
+</footer>
+
+<!-- 🌙 SCRIPT -->
+
+<script>
+function toggleDark(){
+    document.body.classList.toggle("dark");
+    localStorage.setItem("darkMode", document.body.classList.contains("dark"));
+}
+
+if(localStorage.getItem("darkMode")==="true"){
+    document.body.classList.add("dark");
+}
+</script>
+
+</body>
+</html>
